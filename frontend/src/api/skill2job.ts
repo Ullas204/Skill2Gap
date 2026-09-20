@@ -208,6 +208,21 @@ export const skill2jobApi = {
       })
       .then((r) => r.data),
 
+  // ─── Voice Profile Agent ───────────────────────────────────────
+
+  applyProfileReview: (request: {
+    skills_to_add: string[];
+    skills_to_exclude: string[];
+    corrections: Array<{ field: string; value: string; note: string }>;
+  }) =>
+    apiClient
+      .post<{
+        applied_skills: Record<string, unknown>[];
+        excluded_skills: string[];
+        corrections_applied: Record<string, unknown>[];
+      }>("/skill2job/profile/agent/review", request)
+      .then((r) => r.data),
+
   // ─── Phase 3: Learning Progress State Update ─────────────────────
 
   updateLearningProgress: (

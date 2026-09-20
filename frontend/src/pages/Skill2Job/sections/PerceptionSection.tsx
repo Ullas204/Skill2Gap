@@ -4,6 +4,7 @@ import { skill2jobApi } from "../../../api/skill2job";
 import type { PerceptionDetail, PerceptionRecord } from "../../../types/skill2job";
 import { extractErrorMessage } from "./shared";
 import { PerceptionDetailPanel } from "../PerceptionDetailPanel";
+import { VoiceProfileAgent } from "../components/VoiceProfileAgent";
 
 /** Perceive a resume/document/text/voice and review the provenance-annotated extraction history. */
 export function PerceptionSection() {
@@ -161,6 +162,9 @@ export function PerceptionSection() {
 
   return (
     <div className="space-y-6">
+      {/* Voice Profile Agent */}
+      {!selectedId && <VoiceProfileAgent onProfileUpdated={refresh} />}
+
       {selectedId &&
         (detailLoading ? (
           <div className="flex items-center justify-center rounded-2xl border border-gray-200 bg-white p-12">

@@ -1,4 +1,5 @@
 import { AIChat } from "../../agent/AIChat";
+import { VoiceProfileAgent } from "../components/VoiceProfileAgent";
 
 export default function AgentPage() {
   return (
@@ -11,6 +12,7 @@ export default function AgentPage() {
           multi-provider agent infrastructure.
         </p>
       </div>
+      <VoiceProfileAgent />
       <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white">
         <AIChat />
       </div>
