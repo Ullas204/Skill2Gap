@@ -18,6 +18,8 @@ class RefreshTokenRepository(BaseRepository[RefreshToken]):
         super().__init__(session, RefreshToken)
 
     async def store(self, user_id: uuid.UUID, token: str, expires_at: datetime) -> RefreshToken:
+        if expires_at.tzinfo is not None:
+            expires_at = expires_at.replace(tzinfo=None)
         rt = RefreshToken(
             user_id=user_id,
             token_hash=_hash_token(token),
@@ -38,7 +40,8 @@ class RefreshTokenRepository(BaseRepository[RefreshToken]):
         rt = result.scalar_one_or_none()
         if not rt:
             return False
-        if rt.expires_at.replace(tzinfo=timezone.utc) < datetime.now(timezone.utc):
+        now_utc = datetime.now(timezone.utc).replace(tzinfo=None)
+        if rt.expires_at < now_utc:
             return False
         return True
 
@@ -65,7 +68,7 @@ class RefreshTokenRepository(BaseRepository[RefreshToken]):
         from sqlalchemy import delete
 
         stmt = delete(RefreshToken).where(
-            RefreshToken.expires_at < datetime.now(timezone.utc),
+            RefreshToken.expires_at < datetime.now(timezone.utc).replace(tzinfo=None),
         )
         result = await self._session.execute(stmt)
         return result.rowcount

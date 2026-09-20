@@ -22,7 +22,8 @@ export async function sendChatMessageStream(
   onError?: (error: string) => void,
 ): Promise<void> {
   const token = localStorage.getItem("access_token") || "";
-  const response = await fetch("/api/v1/agent/chat", {
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
+  const response = await fetch(`${API_BASE_URL}/api/v1/agent/chat`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
