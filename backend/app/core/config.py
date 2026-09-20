@@ -26,7 +26,19 @@ class Settings(BaseSettings):
     refresh_token_expire_days: int = Field(default=7, alias="REFRESH_TOKEN_EXPIRE_DAYS")
     algorithm: str = "HS256"
 
-    cors_origins: list[str] = Field(default=["http://localhost:5173"], alias="CORS_ORIGINS")
+    cors_origins: str = Field(default="http://localhost:5173", alias="CORS_ORIGINS")
+
+    @property
+    def cors_origins_list(self) -> list[str]:
+        import json
+        v = self.cors_origins
+        try:
+            parsed = json.loads(v)
+            if isinstance(parsed, list):
+                return parsed
+        except (json.JSONDecodeError, TypeError):
+            pass
+        return [origin.strip() for origin in v.split(",") if origin.strip()]
 
     rate_limit_enabled: bool = True
     rate_limit_requests: int = 100
@@ -69,13 +81,6 @@ class Settings(BaseSettings):
     invitation_expiration_hours: int = Field(default=72, alias="INVITATION_EXPIRATION_HOURS")
 
     frontend_base_url: str = Field(default="http://localhost:5173", alias="FRONTEND_BASE_URL")
-
-    @field_validator("cors_origins", mode="before")
-    @classmethod
-    def parse_cors_origins(cls, v: str | list[str]) -> list[str]:
-        if isinstance(v, str):
-            return [origin.strip() for origin in v.split(",")]
-        return v
 
     @field_validator("database_url", mode="before")
     @classmethod
