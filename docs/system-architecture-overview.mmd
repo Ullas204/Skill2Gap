@@ -1,0 +1,23 @@
+%% AI Hiring Copilot - One-page architecture OVERVIEW (7 boxes)
+flowchart TB
+
+    classDef ui fill:#dbeafe,stroke:#1d4ed8,color:#172554,stroke-width:2px
+    classDef app fill:#dcfce7,stroke:#15803d,color:#052e16,stroke-width:2px
+    classDef data fill:#f3e8ff,stroke:#7e22ce,color:#3b0764,stroke-width:2px
+    classDef ext fill:#fee2e2,stroke:#b91c1c,color:#7f1d1d,stroke-width:2px
+
+    FE["Browser<br/>React SPA"]:::ui
+    API["FastAPI backend<br/>REST API /api/v1, port 8000"]:::app
+    SVC["Service layer<br/>screening + intelligence - AI / LLM -<br/>resume parsing - email"]:::app
+    PG[("PostgreSQL")]:::data
+    FS[("File storage<br/>uploads/ resumes")]:::data
+    WK["Background worker<br/>Celery via Redis"]:::app
+    EX["External APIs<br/>Gemini / Groq / OpenRouter / Ollama / SMTP"]:::ext
+
+    FE -->|"HTTPS JSON"| API
+    API --> SVC
+    SVC --> PG
+    SVC --> FS
+    SVC -->|"LLM requests"| EX
+    API -.->|"email jobs"| WK
+    WK -->|"sends mail"| EX

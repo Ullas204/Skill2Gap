@@ -1,0 +1,72 @@
+import type {
+  SimulationBaselineConfig,
+  SimulationConfiguration,
+} from "../../types/simulations";
+import { computeClientChanges, simulationConfigFromBaseline } from "../../types/simulations";
+import { ScenarioConfiguration, SimulationConfigSummary } from "./ScenarioConfiguration";
+
+interface ScenarioBuilderProps {
+  baseline: SimulationBaselineConfig;
+  config: SimulationConfiguration;
+  onChange: (next: SimulationConfiguration) => void;
+  disabled?: boolean;
+}
+
+/**
+ * Side-by-side baseline-vs-simulation comparison. The left column shows the
+ * frozen baseline snapshot of the job's current hiring configuration; the
+ * right column is the recruiter's editable proposed simulation config.
+ */
+export function ScenarioBuilder({ baseline, config, onChange, disabled }: ScenarioBuilderProps) {
+  const changes = computeClientChanges(baseline, config);
+  const changeCount = changes.total_changes;
+
+  return (
+    <div className="space-y-4">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div className="rounded-xl border border-gray-200 bg-gray-50 p-5">
+          <div className="mb-4 flex items-center justify-between">
+            <div>
+              <h3 className="text-sm font-semibold text-gray-900">Baseline configuration</h3>
+              <p className="mt-0.5 text-xs text-gray-500">
+                Snapshot of the job&apos;s current hiring setup
+              </p>
+            </div>
+            <span className="inline-flex rounded-full bg-gray-200 px-2 py-0.5 text-xs font-semibold text-gray-600">
+              Baseline
+            </span>
+          </div>
+          <SimulationConfigSummary config={simulationConfigFromBaseline(baseline)} />
+        </div>
+
+        <div className="rounded-xl border border-primary-200 bg-white p-5">
+          <div className="mb-4 flex items-center justify-between">
+            <div>
+              <h3 className="text-sm font-semibold text-gray-900">Simulation configuration</h3>
+              <p className="mt-0.5 text-xs text-gray-500">
+                What-if scenario to test against the baseline
+              </p>
+            </div>
+            <span className="inline-flex rounded-full bg-primary-100 px-2 py-0.5 text-xs font-semibold text-primary-700">
+              Simulation
+            </span>
+          </div>
+          <ScenarioConfiguration value={config} onChange={onChange} disabled={disabled} />
+        </div>
+      </div>
+
+      <div className="flex items-center justify-between rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm">
+        <span className="text-gray-600">Changes vs baseline</span>
+        <span
+          className={
+            changeCount === 0
+              ? "font-semibold text-gray-500"
+              : "font-semibold text-primary-700"
+          }
+        >
+          {changeCount === 0 ? "No changes yet" : `${changeCount} change${changeCount === 1 ? "" : "s"}`}
+        </span>
+      </div>
+    </div>
+  );
+}

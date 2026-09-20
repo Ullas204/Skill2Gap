@@ -1,0 +1,61 @@
+%% AI Hiring Copilot - System Architecture (readable version)
+%% Render at https://mermaid.live or any Mermaid-enabled Markdown viewer
+flowchart TB
+
+    classDef client fill:#dbeafe,stroke:#1d4ed8,color:#172554,stroke-width:2px
+    classDef edge fill:#e2e8f0,stroke:#334155,color:#0f172a,stroke-width:2px
+    classDef api fill:#dcfce7,stroke:#15803d,color:#052e16,stroke-width:2px
+    classDef svc fill:#fef9c3,stroke:#a16207,color:#422006,stroke-width:2px
+    classDef data fill:#f3e8ff,stroke:#7e22ce,color:#3b0764,stroke-width:2px
+    classDef ext fill:#fee2e2,stroke:#b91c1c,color:#7f1d1d,stroke-width:2px
+
+    subgraph L1["1 - FRONTEND : React 19 SPA (Vite + TypeScript + Tailwind)"]
+        direction LR
+        UI["~60 routes: Public / Candidate(33) / Recruiter / HR-Admin<br/>Auth + Org contexts - Tailwind UI kit"]:::client
+        AX["axios client<br/>JWT interceptors"]:::client
+        UI -->|"user actions"| AX
+    end
+
+    L2["2 - EDGE : Vite dev proxy (dev) / nginx (Docker)<br/>forwards /api to backend port 8000"]:::edge
+
+    subgraph L3["3 - APPLICATION : FastAPI async server, port 8000"]
+        direction TB
+        MW["Middleware: CORS - Rate limiting - Security headers"]:::api
+        V1["REST /api/v1 - 20 routers<br/>auth - users - organizations - invitations - candidates - candidate_jobs<br/>recruiter_jobs - resume_intelligence - screening - dashboard - health<br/>notifications - ai_intelligence - xai - fairness - interview<br/>analytics - agent - demo - assessments"]:::api
+        GRD["Server-side guards:<br/>get_current_user re-reads roles from DB every request<br/>require_role + ROLE_EQUIVALENCE - RequireOrgMembership - owner-or-role"]:::api
+        MW --> V1 --> GRD
+
+        subgraph SVCS["4 - SERVICE LAYER"]
+            direction LR
+            SC["SCREENING + INTELLIGENCE<br/>--------------------------<br/>requirement_extractor<br/>matching_engine + skill_graph<br/>fit_engine<br/>intel_engine v intel-1.0.2<br/>+ intel_service (cache,<br/>freshness, self-heal)<br/>xai_engine (rule-based)<br/>access.candidate_access"]:::svc
+            AL["AI LAYER<br/>--------------------------<br/>BaseAgent + 10 role agents<br/>one chat_service pipeline<br/>llm_client to llm_router<br/>(provider fallback chain)<br/>prompt_safety<br/>workflow_engine<br/>RAG: sentence-transformers<br/>embeddings + retriever"]:::svc
+            PF["PLATFORM<br/>--------------------------<br/>Resume parsing:<br/>pdfplumber / python-docx<br/>to structured resume_profile<br/>(self-healing re-parse)<br/>email_service (SMTP)<br/>Upload validation:<br/>python-magic + allowlist"]:::svc
+        end
+
+        RP["5 - DATA ACCESS : Repositories (SQLAlchemy 2 async)<br/>Domain models: 25+ core tables + agent + analytics + demo models<br/>Alembic migrations 0001 to 0015"]:::svc
+    end
+
+    WK["6 - WORKER : Celery<br/>send_email - invitation_email (retry x3)"]:::svc
+
+    subgraph ST["7 - STORES"]
+        direction LR
+        PG[("PostgreSQL 16 (asyncpg)<br/>tests: SQLite in-memory")]:::data
+        RD[("Redis 7<br/>Celery broker + results")]:::data
+        FS[("uploads/ local disk<br/>resumes + avatars")]:::data
+    end
+
+    EX["8 - EXTERNAL APIs (httpx REST, no SDKs)<br/>Google Gemini - Groq - OpenRouter - Ollama local - SMTP mail server"]:::ext
+
+    AX -->|"HTTPS JSON"| L2 --> MW
+    GRD --> SC
+    GRD --> AL
+    GRD --> PF
+    SC --> RP
+    AL --> RP
+    PF --> RP
+    RP --> PG
+    PF -->|"store / re-parse resumes"| FS
+    PF -.->|"enqueue email jobs"| RD
+    RD --> WK
+    WK -->|"send"| EX
+    AL -->|"LLM calls, fallback chain"| EX

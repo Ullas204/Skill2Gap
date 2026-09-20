@@ -1,0 +1,1135 @@
+{
+  "schema_version": "1",
+  "dataset": "skill2job-curated-jobs-v1",
+  "jobs": [
+    {
+      "external_id": "cur-001",
+      "title": "Backend Engineer (Python/FastAPI)",
+      "company": "Freshworks",
+      "location": "Bengaluru",
+      "remote_type": "remote",
+      "employment_type": "Full-time",
+      "experience_required": "2-4 years",
+      "education_required": "Bachelor's in CS or related",
+      "description": "Design and ship REST APIs with FastAPI and PostgreSQL. Collaborate with frontend teams on feature delivery. Own services end-to-end in a cloud environment.",
+      "required_skills": [
+        "Python",
+        "FastAPI",
+        "PostgreSQL"
+      ],
+      "preferred_skills": [
+        "Docker",
+        "AWS",
+        "Redis"
+      ],
+      "salary_range": "12-18 LPA",
+      "salary_min": 1200000,
+      "salary_max": 1800000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-002",
+      "title": "Senior Backend Engineer",
+      "company": "Razorpay",
+      "location": "Hyderabad",
+      "remote_type": "hybrid",
+      "employment_type": "Full-time",
+      "experience_required": "5+ years",
+      "education_required": "Bachelor's in CS or related",
+      "description": "Lead backend architecture and mentor engineers. Build scalable microservices, improve query performance, and own reliability targets.",
+      "required_skills": [
+        "Python",
+        "Django",
+        "PostgreSQL",
+        "Docker"
+      ],
+      "preferred_skills": [
+        "Kubernetes",
+        "Celery",
+        "Redis"
+      ],
+      "salary_range": "25-35 LPA",
+      "salary_min": 2500000,
+      "salary_max": 3500000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-003",
+      "title": "Frontend Developer (React)",
+      "company": "Zomato",
+      "location": "Remote",
+      "remote_type": "remote",
+      "employment_type": "Full-time",
+      "experience_required": "2-5 years",
+      "education_required": null,
+      "description": "Build responsive React applications with TypeScript and Tailwind. Contribute to design systems and improve performance budgets.",
+      "required_skills": [
+        "React",
+        "TypeScript",
+        "JavaScript"
+      ],
+      "preferred_skills": [
+        "Tailwind CSS",
+        "Redux",
+        "Jest"
+      ],
+      "salary_range": "14-22 LPA",
+      "salary_min": 1400000,
+      "salary_max": 2200000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-004",
+      "title": "Full Stack Engineer",
+      "company": "Swiggy",
+      "location": "Bengaluru",
+      "remote_type": "hybrid",
+      "employment_type": "Full-time",
+      "experience_required": "3-6 years",
+      "education_required": "Bachelor's in CS or related",
+      "description": "Own features across a React frontend and Django backend. Ship customer-facing features with automated tests and clean APIs.",
+      "required_skills": [
+        "Python",
+        "Django",
+        "React",
+        "PostgreSQL"
+      ],
+      "preferred_skills": [
+        "Docker",
+        "Redis",
+        "Celery"
+      ],
+      "salary_range": "18-28 LPA",
+      "salary_min": 1800000,
+      "salary_max": 2800000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-005",
+      "title": "Data Scientist",
+      "company": "Ola",
+      "location": "Pune",
+      "remote_type": "remote",
+      "employment_type": "Full-time",
+      "experience_required": "2-4 years",
+      "education_required": "Master's in CS/Stats or related",
+      "description": "Build and evaluate ML models for search and ranking. Work with Python, pandas, and scikit-learn. Present findings to product stakeholders.",
+      "required_skills": [
+        "Python",
+        "Pandas",
+        "scikit-learn"
+      ],
+      "preferred_skills": [
+        "NumPy",
+        "Airflow",
+        "PyTorch"
+      ],
+      "salary_range": "15-25 LPA",
+      "salary_min": 1500000,
+      "salary_max": 2500000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-006",
+      "title": "Data Engineer",
+      "company": "Flipkart",
+      "location": "Bengaluru",
+      "remote_type": "remote",
+      "employment_type": "Full-time",
+      "experience_required": "2-5 years",
+      "education_required": "Bachelor's in CS or related",
+      "description": "Design ETL pipelines with Airflow and Snowflake. Maintain data quality checks and optimize warehouse queries for analytics teams.",
+      "required_skills": [
+        "Python",
+        "SQL",
+        "Airflow",
+        "Snowflake"
+      ],
+      "preferred_skills": [
+        "Docker",
+        "dbt",
+        "AWS"
+      ],
+      "salary_range": "14-22 LPA",
+      "salary_min": 1400000,
+      "salary_max": 2200000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-007",
+      "title": "Machine Learning Engineer",
+      "company": "PhonePe",
+      "location": "Remote",
+      "remote_type": "remote",
+      "employment_type": "Full-time",
+      "experience_required": "3-6 years",
+      "education_required": "Master's in CS/ML or related",
+      "description": "Productionize ML models and build inference APIs. Own model evaluation, serving, and monitoring infrastructure.",
+      "required_skills": [
+        "Python",
+        "PyTorch",
+        "Docker"
+      ],
+      "preferred_skills": [
+        "AWS",
+        "MLflow",
+        "FastAPI"
+      ],
+      "salary_range": "20-35 LPA",
+      "salary_min": 2000000,
+      "salary_max": 3500000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-008",
+      "title": "DevOps Engineer",
+      "company": "MakeMyTrip",
+      "location": "Gurugram",
+      "remote_type": "hybrid",
+      "employment_type": "Full-time",
+      "experience_required": "3-5 years",
+      "education_required": "Bachelor's in CS or related",
+      "description": "Manage CI/CD pipelines and Kubernetes clusters. Automate infrastructure with Terraform and improve developer velocity.",
+      "required_skills": [
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "Linux"
+      ],
+      "preferred_skills": [
+        "AWS",
+        "GitLab CI",
+        "Prometheus"
+      ],
+      "salary_range": "16-26 LPA",
+      "salary_min": 1600000,
+      "salary_max": 2600000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-009",
+      "title": "QA Automation Engineer",
+      "company": "CRED",
+      "location": "Noida",
+      "remote_type": "remote",
+      "employment_type": "Full-time",
+      "experience_required": "2-4 years",
+      "education_required": null,
+      "description": "Build automated test suites with pytest and Selenium. Integrate tests into CI and drive test coverage improvements.",
+      "required_skills": [
+        "Python",
+        "Pytest",
+        "Selenium"
+      ],
+      "preferred_skills": [
+        "Playwright",
+        "Docker",
+        "GitLab CI"
+      ],
+      "salary_range": "10-16 LPA",
+      "salary_min": 1000000,
+      "salary_max": 1600000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-010",
+      "title": "Cloud Engineer",
+      "company": "Postman",
+      "location": "Chennai",
+      "remote_type": "hybrid",
+      "employment_type": "Full-time",
+      "experience_required": "3-5 years",
+      "education_required": "Bachelor's in CS or related",
+      "description": "Design cloud-native infrastructure on AWS. Implement cost controls, IAM policies, and disaster-recovery runbooks.",
+      "required_skills": [
+        "AWS",
+        "Terraform",
+        "Docker"
+      ],
+      "preferred_skills": [
+        "Kubernetes",
+        "Python",
+        "Linux"
+      ],
+      "salary_range": "16-24 LPA",
+      "salary_min": 1600000,
+      "salary_max": 2400000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-011",
+      "title": "Security Engineer",
+      "company": "Palo Alto Networks India",
+      "location": "Remote",
+      "remote_type": "remote",
+      "employment_type": "Full-time",
+      "experience_required": "3-6 years",
+      "education_required": "Bachelor's in CS or related",
+      "description": "Drive application security reviews, threat modeling, and penetration testing for SaaS products. Own vulnerability response.",
+      "required_skills": [
+        "Security",
+        "Linux",
+        "Python"
+      ],
+      "preferred_skills": [
+        "AWS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "salary_range": "18-30 LPA",
+      "salary_min": 1800000,
+      "salary_max": 3000000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-012",
+      "title": "Frontend Engineer (Vue)",
+      "company": "Dream11",
+      "location": "Bengaluru",
+      "remote_type": "remote",
+      "employment_type": "Full-time",
+      "experience_required": "2-4 years",
+      "education_required": null,
+      "description": "Develop dashboards with Vue 3 and Pinia. Optimize rendering and create accessible UI components.",
+      "required_skills": [
+        "JavaScript",
+        "Vue",
+        "HTML",
+        "CSS"
+      ],
+      "preferred_skills": [
+        "TypeScript",
+        "Jest",
+        "Storybook"
+      ],
+      "salary_range": "12-19 LPA",
+      "salary_min": 1200000,
+      "salary_max": 1900000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-013",
+      "title": "Android Developer",
+      "company": "BYJUS",
+      "location": "Hyderabad",
+      "remote_type": "hybrid",
+      "employment_type": "Full-time",
+      "experience_required": "2-5 years",
+      "education_required": "Bachelor's in CS or related",
+      "description": "Build Android apps in Kotlin with Jetpack Compose. Ship polished, performant mobile features with strong test coverage.",
+      "required_skills": [
+        "Kotlin",
+        "Android",
+        "Java"
+      ],
+      "preferred_skills": [
+        "Jetpack Compose",
+        "Gradle",
+        "Firebase"
+      ],
+      "salary_range": "13-22 LPA",
+      "salary_min": 1300000,
+      "salary_max": 2200000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-014",
+      "title": "iOS Developer",
+      "company": "Zerodha",
+      "location": "Remote",
+      "remote_type": "remote",
+      "employment_type": "Full-time",
+      "experience_required": "2-5 years",
+      "education_required": null,
+      "description": "Develop iOS apps with SwiftUI. Own feature delivery from design handoff to App Store release.",
+      "required_skills": [
+        "Swift",
+        "iOS",
+        "UIKit"
+      ],
+      "preferred_skills": [
+        "SwiftUI",
+        "Combine",
+        "Firebase"
+      ],
+      "salary_range": "14-24 LPA",
+      "salary_min": 1400000,
+      "salary_max": 2400000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-015",
+      "title": "Data Analyst",
+      "company": "Meesho",
+      "location": "Pune",
+      "remote_type": "remote",
+      "employment_type": "Full-time",
+      "experience_required": "1-3 years",
+      "education_required": "Bachelor's in CS/Stats or related",
+      "description": "Turn product data into decision-ready dashboards. Write SQL, build charts, and partner with growth teams.",
+      "required_skills": [
+        "SQL",
+        "Excel",
+        "Tableau"
+      ],
+      "preferred_skills": [
+        "Python",
+        "Power BI",
+        "Pandas"
+      ],
+      "salary_range": "8-15 LPA",
+      "salary_min": 800000,
+      "salary_max": 1500000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-016",
+      "title": "Product Manager",
+      "company": "Unacademy",
+      "location": "Bengaluru",
+      "remote_type": "hybrid",
+      "employment_type": "Full-time",
+      "experience_required": "3-6 years",
+      "education_required": "MBA or equivalent experience",
+      "description": "Own the roadmap for a B2B product. Work backward from customer needs and collaborate with design and engineering.",
+      "required_skills": [
+        "Product Management",
+        "Agile",
+        "Data Analysis"
+      ],
+      "preferred_skills": [
+        "SQL",
+        "Figma",
+        "A/B Testing"
+      ],
+      "salary_range": "20-35 LPA",
+      "salary_min": 2000000,
+      "salary_max": 3500000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-017",
+      "title": "Technical Writer",
+      "company": "Atlassian India",
+      "location": "Remote",
+      "remote_type": "remote",
+      "employment_type": "Full-time",
+      "experience_required": "2-4 years",
+      "education_required": null,
+      "description": "Write clear API and product documentation. Maintain tutorials, release notes, and developer onboarding guides.",
+      "required_skills": [
+        "Technical Writing",
+        "Markdown",
+        "REST API"
+      ],
+      "preferred_skills": [
+        "Git",
+        "Python",
+        "OpenAPI"
+      ],
+      "salary_range": "8-14 LPA",
+      "salary_min": 800000,
+      "salary_max": 1400000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-018",
+      "title": "Solution Architect",
+      "company": "Infosys",
+      "location": "Bengaluru",
+      "remote_type": "hybrid",
+      "employment_type": "Full-time",
+      "experience_required": "8+ years",
+      "education_required": "Bachelor's in CS or related",
+      "description": "Design end-to-end solutions for enterprise clients. Produce architecture blueprints and lead technical discovery workshops.",
+      "required_skills": [
+        "System Architecture",
+        "AWS",
+        "Microservices"
+      ],
+      "preferred_skills": [
+        "Kubernetes",
+        "Python",
+        "Java"
+      ],
+      "salary_range": "40-60 LPA",
+      "salary_min": 4000000,
+      "salary_max": 6000000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-019",
+      "title": "Backend Engineer (Go)",
+      "company": "Uber India",
+      "location": "Remote",
+      "remote_type": "remote",
+      "employment_type": "Full-time",
+      "experience_required": "2-5 years",
+      "education_required": "Bachelor's in CS or related",
+      "description": "Build high-throughput services in Go. Own real-time messaging infrastructure and operate it at scale.",
+      "required_skills": [
+        "Go",
+        "Kubernetes",
+        "PostgreSQL"
+      ],
+      "preferred_skills": [
+        "Redis",
+        "gRPC",
+        "Docker"
+      ],
+      "salary_range": "20-32 LPA",
+      "salary_min": 2000000,
+      "salary_max": 3200000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-020",
+      "title": "Node.js Backend Developer",
+      "company": "CleverTap",
+      "location": "Gurugram",
+      "remote_type": "hybrid",
+      "employment_type": "Full-time",
+      "experience_required": "2-4 years",
+      "education_required": null,
+      "description": "Develop REST and GraphQL APIs on Node.js. Work closely with mobile clients and own third-party integrations.",
+      "required_skills": [
+        "Node.js",
+        "Express",
+        "MongoDB"
+      ],
+      "preferred_skills": [
+        "GraphQL",
+        "Redis",
+        "Docker"
+      ],
+      "salary_range": "12-20 LPA",
+      "salary_min": 1200000,
+      "salary_max": 2000000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-021",
+      "title": "Java Spring Boot Developer",
+      "company": "TCS",
+      "location": "Chennai",
+      "remote_type": "hybrid",
+      "employment_type": "Full-time",
+      "experience_required": "3-6 years",
+      "education_required": "Bachelor's in CS or related",
+      "description": "Build enterprise microservices with Spring Boot. Integrate with legacy systems and enforce API contracts.",
+      "required_skills": [
+        "Java",
+        "Spring",
+        "MySQL"
+      ],
+      "preferred_skills": [
+        "Kafka",
+        "Docker",
+        "Kubernetes"
+      ],
+      "salary_range": "15-24 LPA",
+      "salary_min": 1500000,
+      "salary_max": 2400000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-022",
+      "title": "UI/UX Designer",
+      "company": "PolicyBazaar",
+      "location": "Noida",
+      "remote_type": "remote",
+      "employment_type": "Full-time",
+      "experience_required": "2-5 years",
+      "education_required": null,
+      "description": "Design web and mobile product experiences in Figma. Run usability tests and maintain the design system.",
+      "required_skills": [
+        "Figma",
+        "UI Design",
+        "UX Research"
+      ],
+      "preferred_skills": [
+        "Prototyping",
+        "Design Systems",
+        "HTML",
+        "CSS"
+      ],
+      "salary_range": "12-20 LPA",
+      "salary_min": 1200000,
+      "salary_max": 2000000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-023",
+      "title": "Big Data Engineer",
+      "company": "BigBasket",
+      "location": "Hyderabad",
+      "remote_type": "hybrid",
+      "employment_type": "Full-time",
+      "experience_required": "3-6 years",
+      "education_required": "Bachelor's in CS or related",
+      "description": "Build stream-processing pipelines with Spark and Kafka. Scale data platforms handling terabytes of events daily.",
+      "required_skills": [
+        "Spark",
+        "Kafka",
+        "Scala"
+      ],
+      "preferred_skills": [
+        "Airflow",
+        "Hadoop",
+        "Python"
+      ],
+      "salary_range": "18-28 LPA",
+      "salary_min": 1800000,
+      "salary_max": 2800000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-024",
+      "title": "AI Engineer (LLM Applications)",
+      "company": "Sarvam AI",
+      "location": "Remote",
+      "remote_type": "remote",
+      "employment_type": "Full-time",
+      "experience_required": "3-5 years",
+      "education_required": "Bachelor's in CS or related",
+      "description": "Build production LLM applications with RAG and agentic patterns. Evaluate outputs rigorously and ship reliable AI features.",
+      "required_skills": [
+        "Python",
+        "LangChain",
+        "Prompt Engineering"
+      ],
+      "preferred_skills": [
+        "FastAPI",
+        "PostgreSQL",
+        "OpenAI API"
+      ],
+      "salary_range": "24-40 LPA",
+      "salary_min": 2400000,
+      "salary_max": 4000000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-025",
+      "title": "Database Administrator",
+      "company": "Chargebee",
+      "location": "Pune",
+      "remote_type": "on-site",
+      "employment_type": "Full-time",
+      "experience_required": "3-6 years",
+      "education_required": "Bachelor's in CS or related",
+      "description": "Manage PostgreSQL and MySQL production clusters. Own backups, replication, and query performance tuning.",
+      "required_skills": [
+        "PostgreSQL",
+        "MySQL",
+        "Linux"
+      ],
+      "preferred_skills": [
+        "Redis",
+        "Bash",
+        "Cloud SQL"
+      ],
+      "salary_range": "14-22 LPA",
+      "salary_min": 1400000,
+      "salary_max": 2200000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-026",
+      "title": "SRE Engineer",
+      "company": "Virtusa",
+      "location": "Bengaluru",
+      "remote_type": "hybrid",
+      "employment_type": "Full-time",
+      "experience_required": "4-7 years",
+      "education_required": "Bachelor's in CS or related",
+      "description": "Own reliability of customer-facing services. Build SLOs, run incident response, and automate toil away.",
+      "required_skills": [
+        "Kubernetes",
+        "Prometheus",
+        "Linux"
+      ],
+      "preferred_skills": [
+        "Grafana",
+        "Terraform",
+        "Python"
+      ],
+      "salary_range": "22-34 LPA",
+      "salary_min": 2200000,
+      "salary_max": 3400000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-027",
+      "title": "Business Analyst",
+      "company": "Wipro",
+      "location": "Gurugram",
+      "remote_type": "hybrid",
+      "employment_type": "Full-time",
+      "experience_required": "2-4 years",
+      "education_required": "Bachelor's degree",
+      "description": "Turn business needs into detailed requirements and data-led insights. Support product with SQL analysis.",
+      "required_skills": [
+        "SQL",
+        "Data Analysis",
+        "Excel"
+      ],
+      "preferred_skills": [
+        "Power BI",
+        "Tableau",
+        "Python"
+      ],
+      "salary_range": "9-16 LPA",
+      "salary_min": 900000,
+      "salary_max": 1600000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-028",
+      "title": "React Native Developer",
+      "company": "Goibibo",
+      "location": "Remote",
+      "remote_type": "remote",
+      "employment_type": "Full-time",
+      "experience_required": "2-4 years",
+      "education_required": null,
+      "description": "Build cross-platform mobile apps with React Native. Share code across iOS and Android while keeping native performance.",
+      "required_skills": [
+        "React Native",
+        "JavaScript",
+        "TypeScript"
+      ],
+      "preferred_skills": [
+        "Redux",
+        "Firebase",
+        "Jest"
+      ],
+      "salary_range": "12-20 LPA",
+      "salary_min": 1200000,
+      "salary_max": 2000000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-029",
+      "title": "Backend Engineer (Django)",
+      "company": "Paytm",
+      "location": "Noida",
+      "remote_type": "remote",
+      "employment_type": "Full-time",
+      "experience_required": "2-5 years",
+      "education_required": "Bachelor's in CS or related",
+      "description": "Build Django REST backend for consumer web products. Own authentication, payments, and admin tooling.",
+      "required_skills": [
+        "Python",
+        "Django",
+        "PostgreSQL"
+      ],
+      "preferred_skills": [
+        "Redis",
+        "Celery",
+        "Docker"
+      ],
+      "salary_range": "12-18 LPA",
+      "salary_min": 1200000,
+      "salary_max": 1800000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-030",
+      "title": "DevSecOps Engineer",
+      "company": "Sysdig",
+      "location": "Hyderabad",
+      "remote_type": "hybrid",
+      "employment_type": "Full-time",
+      "experience_required": "4-7 years",
+      "education_required": "Bachelor's in CS or related",
+      "description": "Embed security into CI/CD and cloud infrastructure. Implement secrets management, scanning, and runtime security guardrails.",
+      "required_skills": [
+        "Security",
+        "Kubernetes",
+        "Terraform",
+        "CI/CD"
+      ],
+      "preferred_skills": [
+        "AWS",
+        "Python",
+        "Vault"
+      ],
+      "salary_range": "22-34 LPA",
+      "salary_min": 2200000,
+      "salary_max": 3400000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-031",
+      "title": "Automation Test Engineer (Playwright)",
+      "company": "Mindtree",
+      "location": "Bengaluru",
+      "remote_type": "remote",
+      "employment_type": "Full-time",
+      "experience_required": "2-4 years",
+      "education_required": null,
+      "description": "Build end-to-end browser tests with Playwright. Integrate with CI pipelines and mentor manual testers.",
+      "required_skills": [
+        "Playwright",
+        "TypeScript",
+        "CI/CD"
+      ],
+      "preferred_skills": [
+        "Pytest",
+        "Docker",
+        "GitHub Actions"
+      ],
+      "salary_range": "10-17 LPA",
+      "salary_min": 1000000,
+      "salary_max": 1700000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-032",
+      "title": "WordPress Developer",
+      "company": "Zoho",
+      "location": "Remote",
+      "remote_type": "remote",
+      "employment_type": "Full-time",
+      "experience_required": "1-3 years",
+      "education_required": null,
+      "description": "Build custom WordPress themes and plugins. Optimize site performance and improve editorial workflows.",
+      "required_skills": [
+        "PHP",
+        "WordPress",
+        "HTML",
+        "CSS"
+      ],
+      "preferred_skills": [
+        "JavaScript",
+        "MySQL",
+        "WooCommerce"
+      ],
+      "salary_range": "6-10 LPA",
+      "salary_min": 600000,
+      "salary_max": 1000000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-033",
+      "title": "Data Quality Analyst",
+      "company": "Cognizant",
+      "location": "Chennai",
+      "remote_type": "hybrid",
+      "employment_type": "Full-time",
+      "experience_required": "1-3 years",
+      "education_required": "Bachelor's degree",
+      "description": "Monitor data quality across pipelines. Write validation checks and partner with engineering to root-cause drift.",
+      "required_skills": [
+        "SQL",
+        "Excel",
+        "Data Analysis"
+      ],
+      "preferred_skills": [
+        "Python",
+        "dbt",
+        "Airflow"
+      ],
+      "salary_range": "7-12 LPA",
+      "salary_min": 700000,
+      "salary_max": 1200000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-034",
+      "title": "Scala Developer",
+      "company": "ThoughtWorks",
+      "location": "Bengaluru",
+      "remote_type": "hybrid",
+      "employment_type": "Full-time",
+      "experience_required": "3-6 years",
+      "education_required": "Bachelor's in CS or related",
+      "description": "Build functional, type-safe services in Scala with ZIO. Contribute to a largely functional codebase.",
+      "required_skills": [
+        "Scala",
+        "Functional Programming",
+        "SQL"
+      ],
+      "preferred_skills": [
+        "Kafka",
+        "Cats Effect",
+        "Akka"
+      ],
+      "salary_range": "18-30 LPA",
+      "salary_min": 1800000,
+      "salary_max": 3000000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-035",
+      "title": "Backend Engineer (Rust)",
+      "company": "Cloudflare",
+      "location": "Remote",
+      "remote_type": "remote",
+      "employment_type": "Full-time",
+      "experience_required": "3-5 years",
+      "education_required": null,
+      "description": "Build low-latency Rust services for trading data. Own memory-safe systems that must never drop frames.",
+      "required_skills": [
+        "Rust",
+        "System Programming",
+        "Linux"
+      ],
+      "preferred_skills": [
+        "Tonic gRPC",
+        "Tokio",
+        "PostgreSQL"
+      ],
+      "salary_range": "24-40 LPA",
+      "salary_min": 2400000,
+      "salary_max": 4000000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-036",
+      "title": "QA Engineer (Mobile)",
+      "company": "Samsung R&D India",
+      "location": "Hyderabad",
+      "remote_type": "hybrid",
+      "employment_type": "Full-time",
+      "experience_required": "2-4 years",
+      "education_required": null,
+      "description": "Test mobile apps across Android and iOS. Automate regression suites and own release sign-off.",
+      "required_skills": [
+        "Appium",
+        "Java",
+        "Test Automation"
+      ],
+      "preferred_skills": [
+        "Kotlin",
+        "Jenkins",
+        "Postman"
+      ],
+      "salary_range": "10-16 LPA",
+      "salary_min": 1000000,
+      "salary_max": 1600000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-037",
+      "title": "Sitecore Developer",
+      "company": "Mphasis",
+      "location": "Noida",
+      "remote_type": "on-site",
+      "employment_type": "Full-time",
+      "experience_required": "2-4 years",
+      "education_required": null,
+      "description": "Implement digital experiences on Sitecore with Helix architecture. Integrate CMS with marketing automation.",
+      "required_skills": [
+        "C#",
+        "ASP.NET",
+        "Sitecore"
+      ],
+      "preferred_skills": [
+        "Azure",
+        "SQL",
+        "JavaScript"
+      ],
+      "salary_range": "12-20 LPA",
+      "salary_min": 1200000,
+      "salary_max": 2000000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-038",
+      "title": "Data Governance Analyst",
+      "company": "Deloitte India",
+      "location": "Pune",
+      "remote_type": "hybrid",
+      "employment_type": "Full-time",
+      "experience_required": "2-4 years",
+      "education_required": "Bachelor's degree",
+      "description": "Maintain data dictionaries and governance policies. Partner with privacy teams on compliance reporting.",
+      "required_skills": [
+        "Data Analysis",
+        "SQL",
+        "Documentation"
+      ],
+      "preferred_skills": [
+        "Collibra",
+        "Python",
+        "Excel"
+      ],
+      "salary_range": "9-14 LPA",
+      "salary_min": 900000,
+      "salary_max": 1400000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-039",
+      "title": "Full Stack Developer (MERN)",
+      "company": "Tech Mahindra",
+      "location": "Remote",
+      "remote_type": "remote",
+      "employment_type": "Full-time",
+      "experience_required": "2-5 years",
+      "education_required": "Bachelor's in CS or related",
+      "description": "Build MERN stack applications from database schema to polished UI. Ship customer features weekly.",
+      "required_skills": [
+        "MongoDB",
+        "Express",
+        "React",
+        "Node.js"
+      ],
+      "preferred_skills": [
+        "TypeScript",
+        "Redis",
+        "AWS"
+      ],
+      "salary_range": "14-22 LPA",
+      "salary_min": 1400000,
+      "salary_max": 2200000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    },
+    {
+      "external_id": "cur-040",
+      "title": "Python Developer (Automation)",
+      "company": "HCL Tech",
+      "location": "Bengaluru",
+      "remote_type": "hybrid",
+      "employment_type": "Full-time",
+      "experience_required": "1-3 years",
+      "education_required": "Bachelor's in CS or related",
+      "description": "Automate internal workflows with Python scripts and APIs. Build internal tools that remove manual toil.",
+      "required_skills": [
+        "Python",
+        "Automation",
+        "Bash"
+      ],
+      "preferred_skills": [
+        "Docker",
+        "CI/CD",
+        "PostgreSQL"
+      ],
+      "salary_range": "8-14 LPA",
+      "salary_min": 800000,
+      "salary_max": 1400000,
+      "currency": "INR",
+      "source": "curated",
+      "source_url": "",
+      "active": true
+    }
+  ]
+}

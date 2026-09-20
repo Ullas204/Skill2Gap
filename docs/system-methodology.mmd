@@ -1,0 +1,21 @@
+%% AI Hiring Copilot - METHODOLOGY FLOW (compact version)
+flowchart TB
+
+    classDef step fill:#dbeafe,stroke:#1d4ed8,color:#172554,stroke-width:2px
+    classDef engine fill:#fef9c3,stroke:#a16207,color:#422006,stroke-width:2px
+    classDef output fill:#dcfce7,stroke:#15803d,color:#052e16,stroke-width:2px
+    classDef ext fill:#fee2e2,stroke:#b91c1c,color:#7f1d1d,stroke-width:2px
+
+    A["1 - Upload + parse resume<br/>into structured profile"]:::step
+    B["2 - Create job +<br/>extract requirements"]:::step
+    C["3 - Matching engine + skill graph<br/>overlap vs missing skills"]:::engine
+    D["4 - Fit engine: score + evidence depth<br/>(snapshot cached)"]:::engine
+    E["5 - Evidence intelligence: timeline math,<br/>skill depth tiers, confidence, neutral flags<br/>(snapshot cached)"]:::engine
+    F["6 - Results for recruiter + candidate"]:::output
+    L["LLM router (optional wording polish only)"]:::ext
+
+    A --> C
+    B --> C
+    C --> D --> E --> F
+    L -.-> D
+    L -.-> E

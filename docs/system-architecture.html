@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Hiring Copilot — System Architecture</title>
+<style>
+  body { font-family: "Segoe UI", Arial, sans-serif; margin: 0; background: #f8fafc; color: #0f172a; }
+  header { padding: 14px 24px; background: #0f172a; color: #fff; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  header h1 { font-size: 18px; margin: 0; flex: 1; }
+  button { border: 1px solid #38bdf8; background: #0ea5e9; color: #fff; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 15px; min-width: 44px; }
+  button.secondary { background: transparent; }
+  button.tab.active { background: #fff; color: #0f172a; border-color: #fff; }
+  button:hover { filter: brightness(1.15); }
+  main { max-width: 1600px; margin: 0 auto; padding: 20px; }
+  .zoomwrap { overflow: auto; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
+              box-shadow: 0 1px 3px rgba(0,0,0,.08); height: calc(100vh - 150px); }
+  .zoominner { transform-origin: top left; padding: 24px; display: inline-block; min-width: 100%; }
+  .mmd-holder svg { background: #ffffff; }
+  footer { text-align: center; color: #64748b; font-size: 13px; padding: 12px; }
+  #zl { color:#fff; font-size:14px; min-width:60px; text-align:center; }
+  .err { color:#b91c1c; white-space:pre-wrap; }
+</style>
+</head>
+<body>
+<header>
+  <h1>AI Hiring Copilot — System Architecture</h1>
+  <button id="tab-overview" class="tab active">Overview (simple)</button>
+  <button id="tab-method" class="tab secondary">Methodology flow</button>
+  <button id="tab-detailed" class="tab secondary">Detailed</button>
+  <span style="width:12px"></span>
+  <button id="z-out" title="Zoom out">−</button>
+  <span id="zl">100%</span>
+  <button id="z-in" title="Zoom in">+</button>
+  <button id="z-fit" class="secondary">Fit</button>
+  <button id="dl-svg">Download SVG</button>
+  <button id="dl-png" class="secondary">Download PNG (2x)</button>
+</header>
+<main>
+  <div class="zoomwrap">
+    <div class="zoominner" id="view-overview"><div class="mmd-holder">Rendering…</div></div>
+    <div class="zoominner" id="view-method" style="display:none"><div class="mmd-holder"></div></div>
+    <div class="zoominner" id="view-detailed" style="display:none"><div class="mmd-holder"></div></div>
+  </div>
+  <footer>Tabs switch diagrams · +/− zoom · Download SVG/PNG exports the visible diagram. Sources: docs/system-architecture-overview.mmd, docs/system-methodology.mmd, docs/system-architecture.mmd</footer>
+</main>
+
+<!-- ============ DIAGRAM SOURCES (raw text - parsed verbatim, never HTML-mangled) ============ -->
+<script type="text/x-mermaid" id="src-overview">
+flowchart TB
+
+    classDef ui fill:#dbeafe,stroke:#1d4ed8,color:#172554,stroke-width:2px
+    classDef app fill:#dcfce7,stroke:#15803d,color:#052e16,stroke-width:2px
+    classDef data fill:#f3e8ff,stroke:#7e22ce,color:#3b0764,stroke-width:2px
+    classDef ext fill:#fee2e2,stroke:#b91c1c,color:#7f1d1d,stroke-width:2px
+
+    FE["Browser<br/>React SPA"]:::ui
+    API["FastAPI backend<br/>REST API /api/v1, port 8000"]:::app
+    SVC["Service layer<br/>screening + intelligence - AI / LLM -<br/>resume parsing - email"]:::app
+    PG[("PostgreSQL")]:::data
+    FS[("File storage<br/>uploads/ resumes")]:::data
+    WK["Background worker<br/>Celery via Redis"]:::app
+    EX["External APIs<br/>Gemini / Groq / OpenRouter / Ollama / SMTP"]:::ext
+
+    FE -->|"HTTPS JSON"| API
+    API --> SVC
+    SVC --> PG
+    SVC --> FS
+    SVC -->|"LLM requests"| EX
+    API -.->|"email jobs"| WK
+    WK -->|"sends mail"| EX
+</script>
+
+<script type="text/x-mermaid" id="src-method">
+flowchart TB
+
+    classDef step fill:#dbeafe,stroke:#1d4ed8,color:#172554,stroke-width:2px
+    classDef engine fill:#fef9c3,stroke:#a16207,color:#422006,stroke-width:2px
+    classDef output fill:#dcfce7,stroke:#15803d,color:#052e16,stroke-width:2px
+    classDef ext fill:#fee2e2,stroke:#b91c1c,color:#7f1d1d,stroke-width:2px
+
+    A["1 - Upload + parse resume<br/>into structured profile"]:::step
+    B["2 - Create job +<br/>extract requirements"]:::step
+    C["3 - Matching engine + skill graph<br/>overlap vs missing skills"]:::engine
+    D["4 - Fit engine: score + evidence depth<br/>(snapshot cached)"]:::engine
+    E["5 - Evidence intelligence: timeline math,<br/>skill depth tiers, confidence, neutral flags<br/>(snapshot cached)"]:::engine
+    F["6 - Results for recruiter + candidate"]:::output
+    L["LLM router (optional wording polish only)"]:::ext
+
+    A --> C
+    B --> C
+    C --> D --> E --> F
+    L -.-> D
+    L -.-> E
+</script>
+
+<script type="text/x-mermaid" id="src-detailed">
+flowchart TB
+
+    classDef client fill:#dbeafe,stroke:#1d4ed8,color:#172554,stroke-width:2px
+    classDef edge fill:#e2e8f0,stroke:#334155,color:#0f172a,stroke-width:2px
+    classDef api fill:#dcfce7,stroke:#15803d,color:#052e16,stroke-width:2px
+    classDef svc fill:#fef9c3,stroke:#a16207,color:#422006,stroke-width:2px
+    classDef data fill:#f3e8ff,stroke:#7e22ce,color:#3b0764,stroke-width:2px
+    classDef ext fill:#fee2e2,stroke:#b91c1c,color:#7f1d1d,stroke-width:2px
+
+    subgraph L1["1 - FRONTEND : React 19 SPA (Vite + TypeScript + Tailwind)"]
+        direction LR
+        UI["~60 routes: Public / Candidate(33) / Recruiter / HR-Admin<br/>Auth + Org contexts - Tailwind UI kit"]:::client
+        AX["axios client<br/>JWT interceptors"]:::client
+        UI -->|"user actions"| AX
+    end
+
+    L2["2 - EDGE : Vite dev proxy (dev) / nginx (Docker)<br/>forwards /api to backend port 8000"]:::edge
+
+    subgraph L3["3 - APPLICATION : FastAPI async server, port 8000"]
+        direction TB
+        MW["Middleware: CORS - Rate limiting - Security headers"]:::api
+        V1["REST /api/v1 - 20 routers<br/>auth - users - organizations - invitations - candidates - candidate_jobs<br/>recruiter_jobs - resume_intelligence - screening - dashboard - health<br/>notifications - ai_intelligence - xai - fairness - interview<br/>analytics - agent - demo - assessments"]:::api
+        GRD["Server-side guards:<br/>get_current_user re-reads roles from DB every request<br/>require_role + ROLE_EQUIVALENCE - RequireOrgMembership - owner-or-role"]:::api
+        MW --> V1 --> GRD
+
+        subgraph SVCS["4 - SERVICE LAYER"]
+            direction LR
+            SC["SCREENING + INTELLIGENCE<br/>--------------------------<br/>requirement_extractor<br/>matching_engine + skill_graph<br/>fit_engine<br/>intel_engine v intel-1.0.2<br/>+ intel_service (cache,<br/>freshness, self-heal)<br/>xai_engine (rule-based)<br/>access.candidate_access"]:::svc
+            AL["AI LAYER<br/>--------------------------<br/>BaseAgent + 10 role agents<br/>one chat_service pipeline<br/>llm_client to llm_router<br/>(provider fallback chain)<br/>prompt_safety<br/>workflow_engine<br/>RAG: sentence-transformers<br/>embeddings + retriever"]:::svc
+            PF["PLATFORM<br/>--------------------------<br/>Resume parsing:<br/>pdfplumber / python-docx<br/>to structured resume_profile<br/>(self-healing re-parse)<br/>email_service (SMTP)<br/>Upload validation:<br/>python-magic + allowlist"]:::svc
+        end
+
+        RP["5 - DATA ACCESS : Repositories (SQLAlchemy 2 async)<br/>Domain models: 25+ core tables + agent + analytics + demo models<br/>Alembic migrations 0001 to 0015"]:::svc
+    end
+
+    WK["6 - WORKER : Celery<br/>send_email - invitation_email (retry x3)"]:::svc
+
+    subgraph ST["7 - STORES"]
+        direction LR
+        PG[("PostgreSQL 16 (asyncpg)<br/>tests: SQLite in-memory")]:::data
+        RD[("Redis 7<br/>Celery broker + results")]:::data
+        FS[("uploads/ local disk<br/>resumes + avatars")]:::data
+    end
+
+    EX["8 - EXTERNAL APIs (httpx REST, no SDKs)<br/>Google Gemini - Groq - OpenRouter - Ollama local - SMTP mail server"]:::ext
+
+    AX -->|"HTTPS JSON"| L2 --> MW
+    GRD --> SC
+    GRD --> AL
+    GRD --> PF
+    SC --> RP
+    AL --> RP
+    PF --> RP
+    RP --> PG
+    PF -->|"store / re-parse resumes"| FS
+    PF -.->|"enqueue email jobs"| RD
+    RD --> WK
+    WK -->|"send"| EX
+    AL -->|"LLM calls, fallback chain"| EX
+</script>
+
+<!-- Version pinned: avoids regressions from future 11.x releases -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.1/dist/mermaid.min.js"></script>
+<script>
+  const VIEWS = ['overview', 'method', 'detailed'];
+  const NAMES = { overview: 'system-architecture-overview', method: 'system-methodology', detailed: 'system-architecture-detailed' };
+  let active = 'overview';
+  let scale = 1;
+  const rendered = {};
+
+  mermaid.initialize({
+    startOnLoad: false,
+    securityLevel: 'loose',
+    theme: 'default',
+    themeVariables: { fontSize: '18px', fontFamily: '"Segoe UI", Arial, sans-serif' },
+    flowchart: { useMaxWidth: false, htmlLabels: true, curve: 'basis', nodeSpacing: 50, rankSpacing: 55, padding: 10 }
+  });
+
+  function srcOf(view) {
+    return document.getElementById('src-' + view).textContent.trim();
+  }
+
+  async function ensureRendered(view) {
+    if (rendered[view]) return;
+    const holder = document.querySelector('#view-' + view + ' .mmd-holder');
+    try {
+      const { svg } = await mermaid.render('svg-' + view, srcOf(view));
+      holder.innerHTML = svg;
+      const el = holder.querySelector('svg');
+      el.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+      rendered[view] = true;
+    } catch (e) {
+      holder.innerHTML = '<pre class="err">' + String(e && e.message ? e.message : e) + '</pre>';
+      console.error('mermaid render failed for ' + view, e);
+    }
+  }
+
+  function applyZoom() {
+    document.getElementById('view-' + active).style.transform = 'scale(' + scale + ')';
+    document.getElementById('zl').textContent = Math.round(scale * 100) + '%';
+  }
+
+  function setTab(name) {
+    active = name;
+    VIEWS.forEach(v => {
+      document.getElementById('view-' + v).style.display = v === name ? 'inline-block' : 'none';
+      document.getElementById('tab-' + v).className = 'tab ' + (v === name ? 'active' : 'secondary');
+    });
+    scale = 1; applyZoom();
+    ensureRendered(name);
+  }
+
+  function triggerDownload(href, fname) {
+    const a = document.createElement('a');
+    a.href = href; a.download = fname;
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+
+  window.addEventListener('load', async () => {
+    VIEWS.forEach(v => document.getElementById('tab-' + v).onclick = () => setTab(v));
+    document.getElementById('z-in').onclick  = () => { scale = Math.min(3, scale + 0.15); applyZoom(); };
+    document.getElementById('z-out').onclick = () => { scale = Math.max(0.3, scale - 0.15); applyZoom(); };
+    document.getElementById('z-fit').onclick = () => {
+      const svg = document.querySelector('#view-' + active + ' svg');
+      if (!svg) return;
+      const vb = svg.viewBox.baseVal;
+      const wrap = document.querySelector('.zoomwrap');
+      scale = Math.min(1.5, (wrap.clientWidth - 48) / Math.max(1, vb.width));
+      applyZoom();
+      wrap.scrollTop = 0;
+    };
+
+    document.getElementById('dl-svg').onclick = () => {
+      const svg = document.querySelector('#view-' + active + ' svg');
+      if (!svg) return;
+      const blob = new Blob([new XMLSerializer().serializeToString(svg)], { type: 'image/svg+xml' });
+      triggerDownload(URL.createObjectURL(blob), NAMES[active] + '.svg');
+    };
+
+    document.getElementById('dl-png').onclick = () => {
+      const svg = document.querySelector('#view-' + active + ' svg');
+      if (!svg) return;
+      const data = new XMLSerializer().serializeToString(svg);
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = svg.viewBox.baseVal.width * 2;
+        canvas.height = svg.viewBox.baseVal.height * 2;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        triggerDownload(canvas.toDataURL('image/png'), NAMES[active] + '.png');
+      };
+      img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(data)));
+    };
+
+    applyZoom();
+    await ensureRendered('overview');
+  });
+</script>
+</body>
+</html>
