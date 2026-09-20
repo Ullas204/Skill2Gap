@@ -30,5 +30,5 @@ class FairnessAgent(BaseAgent):
             "- Provide specific, actionable recommendations\n"
             "- Reference industry best practices\n"
             "- Escalate critical fairness concerns immediately\n\n"
-            f"{('RELEVANT PLATFORM DATA:\\n' + rag_context) if rag_context else ''}"
+            f"{('RELEVANT PLATFORM DATA:' + chr(10) + rag_context) if rag_context else ''}"
         )

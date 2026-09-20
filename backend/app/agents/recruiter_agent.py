@@ -43,5 +43,5 @@ class RecruiterAgent(BaseAgent):
             "- 'create_job' - create new job posting\n"
             "- 'schedule_interview' - schedule interviews\n"
             "- 'generate_interview_questions' - create interview questions\n\n"
-            f"{('RELEVANT PLATFORM DATA:\\n' + rag_context) if rag_context else ''}"
+            f"{('RELEVANT PLATFORM DATA:' + chr(10) + rag_context) if rag_context else ''}"
         )

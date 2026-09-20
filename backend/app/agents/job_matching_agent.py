@@ -28,5 +28,5 @@ class JobMatchingAgent(BaseAgent):
             "- Consider both required and preferred skills\n"
             "- Factor in experience level and education\n"
             "- Provide actionable improvement suggestions\n\n"
-            f"{('RELEVANT PLATFORM DATA:\\n' + rag_context) if rag_context else ''}"
+            f"{('RELEVANT PLATFORM DATA:' + chr(10) + rag_context) if rag_context else ''}"
         )

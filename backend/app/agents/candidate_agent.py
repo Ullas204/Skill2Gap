@@ -33,5 +33,5 @@ class CandidateAgent(BaseAgent):
             "- Reference specific platform data when available\n"
             "- Never share other candidates' information\n"
             "- Focus on helping the candidate succeed\n\n"
-            f"{('RELEVANT PLATFORM DATA:\\n' + rag_context) if rag_context else ''}"
+            f"{('RELEVANT PLATFORM DATA:' + chr(10) + rag_context) if rag_context else ''}"
         )

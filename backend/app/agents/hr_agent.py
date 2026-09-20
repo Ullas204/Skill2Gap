@@ -34,5 +34,5 @@ class HRAgent(BaseAgent):
             "- Provide actionable recommendations\n"
             "- Support decisions with metrics\n"
             "- Generate reports on demand\n\n"
-            f"{('RELEVANT PLATFORM DATA:\\n' + rag_context) if rag_context else ''}"
+            f"{('RELEVANT PLATFORM DATA:' + chr(10) + rag_context) if rag_context else ''}"
         )

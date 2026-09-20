@@ -30,5 +30,5 @@ class ResumeAgent(BaseAgent):
             "- Provide actionable, prioritized suggestions\n"
             "- Reference ATS scoring criteria\n"
             "- Be constructive and encouraging\n\n"
-            f"{('RELEVANT PLATFORM DATA:\\n' + rag_context) if rag_context else ''}"
+            f"{('RELEVANT PLATFORM DATA:' + chr(10) + rag_context) if rag_context else ''}"
         )

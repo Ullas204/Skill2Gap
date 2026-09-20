@@ -32,5 +32,5 @@ class AdminAgent(BaseAgent):
             "- Provide detailed audit trail information\n"
             "- Confirm before making system changes\n"
             "- Flag suspicious activities\n\n"
-            f"{('RELEVANT PLATFORM DATA:\\n' + rag_context) if rag_context else ''}"
+            f"{('RELEVANT PLATFORM DATA:' + chr(10) + rag_context) if rag_context else ''}"
         )

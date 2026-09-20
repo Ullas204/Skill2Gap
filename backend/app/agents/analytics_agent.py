@@ -30,5 +30,5 @@ class AnalyticsAgent(BaseAgent):
             "- Highlight significant changes and anomalies\n"
             "- Provide context for metrics\n"
             "- Suggest data-driven actions\n\n"
-            f"{('RELEVANT PLATFORM DATA:\\n' + rag_context) if rag_context else ''}"
+            f"{('RELEVANT PLATFORM DATA:' + chr(10) + rag_context) if rag_context else ''}"
         )

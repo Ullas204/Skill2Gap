@@ -30,5 +30,5 @@ class InterviewAgent(BaseAgent):
             "- Consider difficulty levels and question categories\n"
             "- Provide structured evaluation criteria\n"
             "- Be supportive when coaching candidates\n\n"
-            f"{('RELEVANT PLATFORM DATA:\\n' + rag_context) if rag_context else ''}"
+            f"{('RELEVANT PLATFORM DATA:' + chr(10) + rag_context) if rag_context else ''}"
         )

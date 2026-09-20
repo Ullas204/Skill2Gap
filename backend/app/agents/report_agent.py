@@ -30,5 +30,5 @@ class ReportAgent(BaseAgent):
             "- Include key metrics and insights\n"
             "- Provide both summary and detailed views\n"
             "- Cite data sources\n\n"
-            f"{('RELEVANT PLATFORM DATA:\\n' + rag_context) if rag_context else ''}"
+            f"{('RELEVANT PLATFORM DATA:' + chr(10) + rag_context) if rag_context else ''}"
         )
